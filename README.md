@@ -17,9 +17,9 @@ FastOrderBookBenchmark is a C++17 micro-benchmark comparing three limit order bo
 
 | Variant | Mean Throughput (events/sec) | Std Dev | Median Latency (ns) | p95 (ns) | p99 (ns) |
 |---------|------------------------------|---------|---------------------|----------|----------|
-| `map` (RB-tree)    | 8.85M | 0.74M | 42 | 92* | 175* |
+| `map` (RB-tree)    | 8.85M | 0.74M | 42 | 92 | 175 |
 | `vector` (sorted)  | 8.58M | 0.14M | 42 | 125 | 167 |
-| `hash` + lazy heaps| **10.39M** | 0.11M | 42 | 125 | 233* |
+| `hash` + lazy heaps| **10.39M** | 0.11M | 42 | 125 | 233 |
 
 
 > **Key Observation:** After introducing *lazy min/max heap tracking with active price sets*, the hash layout not only removed the original tail latency blow-up (naive p99 1.29 µs) but also delivered the highest throughput (~10.4M events/sec) with a p99 ≤ 250 ns—comparable to tree/vector variants.
