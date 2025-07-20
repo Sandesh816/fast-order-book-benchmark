@@ -46,7 +46,7 @@ FastOrderBookBenchmark is a C++17 micro-benchmark comparing three limit order bo
 
 ## Performance Summary
 
-Baseline `std::map` and sorted `std::vector` implementations both reached ~8.6–8.9M events/sec with 42 ns median and ≤ 0.25 µs p99 latency. The **initial naive hash design** (not included in the table) achieved only ~5.2M events/sec with a 1.29 µs p99 because it performed full scans to recompute best bid/ask after deletions. Replacing those rescans with *lazy min/max heaps plus active price sets* produced a hash variant averaging **~10.4M events/sec**, while shrinking tail latency to ≤ 0.25 µs—demonstrating that data structure *ancillary maintenance strategy* (not the hashing itself) was the real bottleneck.
+Baseline `std::map` and sorted `std::vector` implementations both reached ~8.6–8.9M events/sec with 42 ns median and ≤ 0.25 µs p99 latency. The **initial naive hash design** (not included in the table) achieved only ~5.2M events/sec with a 1.29 µs p99 because it performed full scans to recompute best bid/ask after deletions. Replacing those rescans with *lazy min/max heaps plus active price sets* produced a hash variant averaging **~10.4M events/sec**, while shrinking tail latency to ≤ 0.25 µs, demonstrating that data structure *maintenance strategy* (not the hashing itself) was the real bottleneck.
 
 ## Build & Run
 
