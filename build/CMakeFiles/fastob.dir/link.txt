@@ -1,0 +1,2 @@
+/usr/bin/ar qc libfastob.a CMakeFiles/fastob.dir/src/order_book_map.cpp.o CMakeFiles/fastob.dir/src/order_book_vector.cpp.o CMakeFiles/fastob.dir/src/order_book_hash.cpp.o CMakeFiles/fastob.dir/src/event_generator.cpp.o
+/usr/bin/ranlib libfastob.a
